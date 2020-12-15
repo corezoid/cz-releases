@@ -1,0 +1,18 @@
+release:
+  name: 'gitcall_app'
+  helm:
+    enabled: true
+    chart:
+      version: '2.0.1'
+      description: 'The gitcall application'
+  require:
+    gitcall: '2.0.4'
+    gitcall_docker_server: '1.0.3'
+    gitcall_network_policy: '1.0.4'
+    gitcall_amulet: '1.0.4'
+    gitcall_pimp: '1.0.6'
+    gitcall_migrations: '2.0.6'
+    docker-registry: '1.0.1'
+    kube_goodies: '1.0.1'
+    postgresql: '1.0.1'
+    rabbitmq: '1.0.1'
