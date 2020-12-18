@@ -49,7 +49,7 @@ gitcall:
   config:
     dundergitcall:
       global_policy:
-        dundergitcall_image: 'docker-hub.middleware.biz/public/gitcall/dundergitcall:1.0.0'
+        dundergitcall_image: 'docker-hub.middleware.biz/public/gitcall/dundergitcall:1.0.1'
         usercode_js_runner_image: 'docker-hub.middleware.biz/public/gitcall/js-runner:0.5.1'
         usercode_php_runner_image: 'docker-hub.middleware.biz/public/gitcall/php-runner:0.4.4'
         usercode_php_runtime_image: 'docker-hub.middleware.biz/public/gitcall/php-runtime:7.3-1'
