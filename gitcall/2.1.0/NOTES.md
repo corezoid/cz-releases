@@ -40,7 +40,7 @@ Add to `release.repositories` section:
 kube:
     source: 'git'
     git:
-        repo: 'ggit@github.com:corezoid/cz-packages.git'
+        repo: 'git@github.com:corezoid/cz-packages.git'
         path: 'kube'
 ```
 
