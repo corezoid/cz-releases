@@ -25,7 +25,7 @@ curl -sSfL --output cz "https://repo.middleware.biz/deps/cz/darwin/amd64/1.3.1/c
 chmod +x cz
 
 cz release list-available
-cz release new gitcall/2.0.2 gitcall --vv
+cz release new gitcall/2.1.0 gitcall --vv
 ```
 
 ## Upgrade 2.0 to 2.1 
