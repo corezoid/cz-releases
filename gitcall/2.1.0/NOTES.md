@@ -68,7 +68,7 @@ rabbitmq_credentials:
 
 * `postgresql` component replaced by `postgresql_credentials`. Just rename it. The structure the same.
 
-Remove `release.repositories.rabbitmq` section.
+Remove `release.repositories.postgresql` section.
 
 Add to `release.repositories` section:
 ```yaml
