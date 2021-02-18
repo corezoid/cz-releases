@@ -7,6 +7,7 @@
 * Checkout tag, branch, commit
 * Docker server cluster 
 * Bug fixes
+* Swagger REST API
 
 ## Corezoid
 
@@ -17,8 +18,19 @@
 
 [Changelog](CHANGELOG.md)
 
+## Install
+
+```
+curl -sSfL --output cz "https://repo.middleware.biz/deps/cz/darwin/amd64/1.3.1/cz"
+chmod +x cz
+
+cz release list-available
+cz release new gitcall/2.0.2 gitcall --vv
+```
+
 ## Upgrade 2.0 to 2.1 
 
+* Sync your release.yaml with new [release.yaml](release.yaml).
 * `kube_goodies` component replaced by `kube`. Now, secrets could be configured:
 
 ```yaml
