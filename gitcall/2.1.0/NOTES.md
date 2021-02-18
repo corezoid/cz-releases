@@ -31,7 +31,20 @@ cz release new gitcall/2.1.0 gitcall --vv
 ## Upgrade 2.0 to 2.1 
 
 * Sync your release.yaml with new [release.yaml](release.yaml).
-* `kube_goodies` component replaced by `kube`. Now, secrets could be configured:
+* `kube_goodies` component replaced by `kube`. 
+
+Remove `release.repositories.kube_goodies` section.
+
+Add to `release.repositories` section:
+```yaml
+kube:
+    source: 'git'
+    git:
+        repo: 'ggit@github.com:corezoid/cz-packages.git'
+        path: 'kube'
+```
+
+* The docker config secrets configuration has changed. Now, secrets could be configured:
 
 ```yaml
 kube:
@@ -110,7 +123,7 @@ kubectl delete service arelease-gitcall-docker-server-service
 ```
 
 Update `gitcall.config.dundergitcall.docker_daemon` section:
-```
+```yaml
 docker_daemon:
     discovery: "dns"
     host: 'arelease-gitcall-docker-server-service'
