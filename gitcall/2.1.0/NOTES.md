@@ -21,7 +21,7 @@
 ## Install
 
 ```
-curl -sSfL --output cz "https://repo.middleware.biz/deps/cz/darwin/amd64/1.3.1/cz"
+curl -sSfL --output cz "https://repo.middleware.biz/deps/cz/darwin/amd64/1.3.3/cz"
 chmod +x cz
 
 cz release list-available
