@@ -1,4 +1,4 @@
-# Release DBCall 1.6.0
+# Release DBCall 1.7.0
 
 ## Summary
 
