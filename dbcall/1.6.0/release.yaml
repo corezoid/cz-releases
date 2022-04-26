@@ -1,0 +1,99 @@
+release:
+    name: 'dbcall_app'
+    helm:
+        enabled: true
+        chart:
+            version: '1.6.0'
+            description: 'The dbcall application'
+        context: '' # todo
+        namespace: '' # todo
+        release: '' # todo
+        deploy: ['dbcall', 'dbcall_migrations', 'gitcall_pimp', 'kube']
+    require:
+        dbcall: '1.6.0'
+        dbcall_migrations: '1.6.0'
+        gitcall_pimp: '0.9.0'  
+        kube: '3.0.5'
+
+dbcall:
+    config:
+        __dbcall_image_path: 'docker-hub.middleware.biz/public/gitcall/dunder-dbcall:1.5.1'
+        __dbcall_liveness_port: 9200
+        __dbcall_readiness_port: 9300
+        api:
+            server:
+                host: '0.0.0.0'
+                port: 8080
+        database:
+            database: '' # todo
+            host: '' # todo
+            max_open_conns_per_db: 4
+            password: '' # todo
+            port: 5432
+            ssl: false
+            timeoutMs: 5000
+            username: '' # todo
+        liveness_port: 9200
+        name: 'dbcall'
+        prom_api: "" # todo http://prometheus-server.monitoring.svc
+        readiness_port: 9300
+        services_pimp:
+            host: "" # todo http://RELEASE-gitcall-pimp-service 
+            port: 8080
+            timeoutMs: 5000
+        use_prometheus_metrics: true
+    helm:
+        image_pull_policy: 'Always'
+        max_replicas: 1
+        min_replicas: 1
+
+dbcall_migrations:
+    config:
+        migrate:
+            migrator_username: '' # todo 
+            migrator_password: '' # todo 
+            host: '' # todo
+            port: 5432
+            db: '' # todo
+
+gitcall_pimp:
+    config:
+        api:
+            auth:
+                dbcall: '' # todo
+            server:
+                host: '0.0.0.0'
+                port: 8080
+        gopsagent:
+            enabled: false
+        k8s:
+            apply_timeout_ms: 10000
+            auth:
+                in_cluster: true
+
+            namespace_cache_ms: 86400
+            secrets_cache_ms: 86400
+        sentry:
+            enabled: false
+    helm:
+        image_pull_policy: 'Always'
+        cluster_role_name: '' # todo RELEASE-dbcall-pimp-cluster-role
+        cluster_role_binding_name: '' # todo RELEASE-dbcall-pimp-cluster-binding-role
+        max_replicas: 1
+        min_replicas: 1
+
+kube:
+    # setup ingress if corezoid is outside k8s cluster. 
+    # If corezoid and dbcall are in the same cluster dont use ingress, use service RELEASE-dbcall-service.
+    ingress_v1beta1:
+        - enabled: false
+          name: 'RELEASE-dbcall-ingress'
+          api_version: 'networking.k8s.io/v1beta1'
+          annotations:
+              kubernetes.io/ingress.class: '' # todo
+          rules:
+              - host: '' # todo
+                http:
+                    - path: "/*"
+                      service_name: '' # todo RELEASE-dbcall-service
+                      service_port: 8080
