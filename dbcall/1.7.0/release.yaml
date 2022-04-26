@@ -3,20 +3,40 @@ release:
     helm:
         enabled: true
         chart:
-            version: '1.6.0'
+            version: '1.7.0'
             description: 'The dbcall application'
         context: 'todo' # todo
         namespace: 'todo' # todo
         release: 'todo' # todo
         deploy: ['dbcall', 'dbcall_migrations', 'gitcall_pimp', 'kube']
     require:
-        dbcall: '1.6.0'
-        dbcall_migrations: '1.6.0'
+        dbcall: '1.7.0'
+        dbcall_migrations: '1.7.0'
         gitcall_pimp: '0.9.0'  
         kube: '3.0.5'
 
 dbcall:
     config:
+        query_consumer:
+            host: '' # todo
+            port: 5672
+            username: '' # todo
+            password: '' # todo
+            vhost: '/dbcall'
+            prefetch: 100
+            queue_name: 'dbcall-query-1'
+        query_reply_publisher:
+            host: '' # todo
+            port: 5672
+            username: '' # todo
+            password: '' # todo
+            vhost: '/dbcall'
+        prometheus:
+            enabled: true
+            type: 'scrape'
+            metrics_host: '0.0.0.0'
+            metrics_port: 9100
+            not_scraped_check_period_sec: 120
         __dbcall_image_path: 'docker-hub.middleware.biz/public/gitcall/dunder-dbcall:1.5.1'
         __dbcall_liveness_port: 9200
         __dbcall_readiness_port: 9300
