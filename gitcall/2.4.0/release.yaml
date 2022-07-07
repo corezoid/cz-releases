@@ -18,8 +18,8 @@ release:
             - 'docker-registry'
             - 'kube'
     require:
-        gitcall: '2.4.1'
-#        gitcall_migrations: '2.4.1'
+        gitcall: '2.4.2'
+        gitcall_migrations: '2.4.2'
         gitcall_docker_server: '1.0.5'
         gitcall_network_policy: '1.0.4'
         gitcall_amulet: '1.2.0'

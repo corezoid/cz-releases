@@ -2,6 +2,24 @@
 
 ## gitcall
 
+### 2.4.2 - 2022-07-07
+
+GIT-462: declare task queue on runservice call
+
+Closes GIT-462
+
+See merge request gitcall/gitcall!311
+
+#### Merged
+
+- GIT-462: declare task queue on runservice call `#311`
+- log reply status and message `#310`
+
+#### Fixed
+
+- Merge branch 'GIT-462-declare-task-queue-on-runservice' into '2.4-dev' `#GIT-462` `#GIT-462` `#GIT-462`
+- GIT-462: declare task queue on runservice call `#GIT-462`
+
 ### 2.4.1 - 2022-06-17
 
 GIT-460: Update dundergitcall sdk to v2
@@ -61,10 +79,6 @@ See merge request gitcall/gitcall!309
 - Merge branch '1.1-dev' into 'COR-8717-valide-kube-recources' `#COR-8717`
 
 ## gitcall_docker_server
-
-No changes
-
-## gitcall_migrations
 
 No changes
 
